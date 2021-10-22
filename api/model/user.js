@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    _id:mongoose.Schema.Types.ObjectId,
+
     username:{
-        type:String,
-        unique:true
+        type: String,
+        required : true,
     },
     email:{
         type: String,
@@ -13,12 +13,12 @@ const userSchema = new mongoose.Schema({
         match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     },
     password:{
-    type:String
+        type: String,
+        required : true,
     },
-    c_password:{
-    type:String
-    }
-    
-})
+    token:{
+        type : String
+    },
+});
 
-module.exports = mongoose.model('user', userSchema)
+module.exports = mongoose.model('Register', userSchema);
